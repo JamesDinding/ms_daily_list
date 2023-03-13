@@ -1,13 +1,9 @@
 import React from "react";
 import Card from "../Card/Card";
+import { ListItem } from "../../module/list";
 
 interface ListProps {
-  cardList: {
-    id: string;
-    title: string;
-    description: string;
-    creater: string;
-  }[];
+  cardList: ListItem[];
 }
 
 const List: React.FC = ({}) => {
