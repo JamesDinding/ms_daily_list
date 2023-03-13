@@ -1,6 +1,6 @@
-import { createSlice, configureStore } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+const initialListState = {
   pendingList: [],
   currentList: [],
   finishedList: [],
@@ -8,7 +8,7 @@ const initialState = {
 
 const listSlice = createSlice({
   name: "list",
-  initialState,
+  initialState: initialListState,
   reducers: {
     addToList(state, action) {
       // state['what_list_should_update'].push(action.payload)
@@ -19,9 +19,5 @@ const listSlice = createSlice({
   },
 });
 
-const store = configureStore({
-  reducer: { list: listSlice.reducer },
-});
-
 export const listActions = listSlice.actions;
-export default store;
+export default listSlice.reducer;
