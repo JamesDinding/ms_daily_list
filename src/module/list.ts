@@ -8,3 +8,9 @@ export interface ListItem {
     isDone: boolean;
   }[];
 }
+
+export interface ListState {
+  pendingList: ListItem[];
+  currentList: ListItem[];
+  finishedList: ListItem[];
+}

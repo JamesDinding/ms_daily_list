@@ -1,6 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ListState, ListItem } from "../module/list";
 
-const initialListState = {
+const initialListState: ListState = {
   pendingList: [],
   currentList: [],
   finishedList: [],
@@ -10,7 +11,7 @@ const listSlice = createSlice({
   name: "list",
   initialState: initialListState,
   reducers: {
-    addToList(state, action) {
+    addToList(state, action: PayloadAction<ListItem>) {
       // state['what_list_should_update'].push(action.payload)
     },
     removeFromList(state, action) {
