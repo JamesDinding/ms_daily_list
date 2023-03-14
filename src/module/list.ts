@@ -1,5 +1,6 @@
 export interface ListItem {
   id: string;
+  listName: string;
   title: string;
   description: string;
   creater: string;

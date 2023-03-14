@@ -6,10 +6,10 @@ interface ListProps {
   cardList: ListItem[];
 }
 
-const List: React.FC = ({}) => {
+const List: React.FC<ListProps> = ({ cardList }) => {
   return (
     <div>
-      {new Array(6).fill("").map(() => (
+      {cardList.map(() => (
         <Card />
       ))}
     </div>

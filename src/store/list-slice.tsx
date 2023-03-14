@@ -12,10 +12,12 @@ const listSlice = createSlice({
   initialState: initialListState,
   reducers: {
     addToList(state, action: PayloadAction<ListItem>) {
-      // state['what_list_should_update'].push(action.payload)
+      const { listName } = action.payload;
+      state[listName as keyof ListState].push(action.payload);
     },
     removeFromList(state, action) {
-      // state['list_name'].filter(el=> el !== action.id)
+      const { listName, id } = action.payload;
+      state[listName as keyof ListState].filter((list) => list.id !== id);
     },
   },
 });

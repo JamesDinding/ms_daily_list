@@ -5,9 +5,7 @@ const PendingSection: React.FC = () => {
   return (
     <div>
       代辦區塊:
-      <div>
-        <List />
-      </div>
+      <div>{/* <List /> */}</div>
     </div>
   );
 };

@@ -5,9 +5,7 @@ const ProcessingSection: React.FC = () => {
   return (
     <div>
       進行中區塊:
-      <div>
-        <List />
-      </div>
+      <div>{/* <List /> */}</div>
     </div>
   );
 };
