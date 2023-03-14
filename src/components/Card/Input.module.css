@@ -1,0 +1,34 @@
+.input {
+  position: relative;
+}
+
+.form__input {
+  height: 2.25rem;
+  padding: 0.25rem 0rem;
+  font-size: medium;
+  text-indent: 0.5rem;
+}
+
+.form__label {
+  position: absolute;
+  padding: 0rem 0.5rem;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 0.5rem;
+  transition-duration: 0.3s;
+  height: 1rem;
+  font-size: small;
+}
+
+.form__label--focus {
+  position: absolute;
+  padding: 0rem 0.5rem;
+  top: -1rem;
+  left: 0.5rem;
+  display: flex;
+  align-items: center;
+  height: 1.5rem;
+  font-size: small;
+  transition-duration: 0.3s;
+  background-color: #fff;
+}
