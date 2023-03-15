@@ -9,8 +9,8 @@ interface ListProps {
 const List: React.FC<ListProps> = ({ cardList }) => {
   return (
     <div>
-      {cardList.map(() => (
-        <Card />
+      {cardList.map((_, index) => (
+        <Card key={index} />
       ))}
     </div>
   );

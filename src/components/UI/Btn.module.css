@@ -1,0 +1,25 @@
+.btn {
+  color: white;
+  background-color: rgb(148, 139, 247);
+  padding: 1rem 1.25rem;
+  border-radius: 0.25rem;
+  transition-duration: 0.3s;
+}
+
+.btn:hover {
+  color: white;
+  background-color: rgb(89, 78, 205);
+  padding: 1rem 1.25rem;
+  border-radius: 0.25rem;
+}
+
+.btn--disabled {
+  color: white;
+  background-color: rgba(148, 139, 247, 0.4);
+  padding: 1rem 1.25rem;
+  border-radius: 0.25rem;
+}
+
+.btn--disabled:hover {
+  cursor: not-allowed;
+}
