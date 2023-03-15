@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, Fragment } from "react";
 import { createPortal } from "react-dom";
 import { useListSelector } from "../../hooks/list-hooks";
 import { ListState } from "../../module/list";
+import classes from "./Section.module.css";
 import List from "./List";
 import AddCard from "../Card/AddCard";
 import BackDrop from "../UI/BackDrop";
@@ -33,7 +34,7 @@ const Section: React.FC<SectionProps> = ({
           <AddCard onShut={() => setIsPop(false)} listName={section_id} />,
           document.getElementById("modal")!
         )}
-      <div id={section_id}>
+      <div id={section_id} className={classes.section}>
         <h3>{title}</h3>
         <div>
           <List cardList={list}></List>

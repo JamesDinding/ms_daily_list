@@ -3,6 +3,19 @@
   border-width: 1px;
   border-style: solid;
   /* box-shadow: inset 1px 1px 1px 1px; */
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   margin: 1rem 0px;
+  height: 10rem;
+  overflow: hidden;
+}
+
+.card__title {
+  font-size: 2em;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.card__description {
+  font-size: 1em;
+  text-overflow: ellipsis;
 }

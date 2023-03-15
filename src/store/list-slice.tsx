@@ -15,9 +15,15 @@ const listSlice = createSlice({
       const { listName } = action.payload;
       state[listName as keyof ListState].push(action.payload);
     },
-    removeFromList(state, action) {
+    removeFromList(
+      state,
+      action: PayloadAction<{ listName: string; id: string }>
+    ) {
       const { listName, id } = action.payload;
       state[listName as keyof ListState].filter((list) => list.id !== id);
+    },
+    movingCardOrder(state, action) {
+      const { targetList, originList, id } = action.payload;
     },
   },
 });
