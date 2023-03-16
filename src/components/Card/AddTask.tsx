@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import Btn from "../UI/Btn";
 import classes from "./AddTask.module.css";
 
@@ -15,7 +15,7 @@ const AddTask: React.FC<AddTaskProps> = ({ tasks, setTasks }) => {
     if (isCreating) return;
     setTasks((prev) => {
       const tempTask = [...prev];
-      tempTask.push("test");
+      tempTask.push("");
       return tempTask;
     });
     setIsCreating(true);
@@ -53,13 +53,23 @@ const AddTask: React.FC<AddTaskProps> = ({ tasks, setTasks }) => {
     }
   };
 
+  const removeTaskHandler = (order: number) => {
+    setTasks((prev) => {
+      const temp = [...prev];
+      temp.splice(order, 1);
+      return temp;
+    });
+    setIsCreating(false);
+  };
+
   return (
     <div className={classes.task + " no-scrollbar"}>
       <div className={classes.title}>待辦事項</div>
       <ul className={classes.task__list}>
         {tasks.map((task, index) => {
+          console.log(task, task.length);
           return (
-            <li key={index}>
+            <li key={index} className={classes["task__list--item"]}>
               <input
                 id={`task_${index}`}
                 className={classes["task__input"]}
@@ -67,9 +77,22 @@ const AddTask: React.FC<AddTaskProps> = ({ tasks, setTasks }) => {
                 autoFocus={true}
                 minLength={1}
                 maxLength={30}
-                onBlur={updateTaskGoal.bind(null, `task_${index}`)}
                 onKeyDown={enterTaskGoal.bind(null, `task_${index}`)}
               />
+              <button
+                type="button"
+                onClick={removeTaskHandler.bind(null, index)}
+              >
+                <img src="/assets/minus.png" alt="" />
+              </button>
+              {!task.length && (
+                <button
+                  type="button"
+                  onClick={updateTaskGoal.bind(null, `task_${index}`)}
+                >
+                  <img src="/assets/add.png" alt="" />
+                </button>
+              )}
             </li>
           );
         })}

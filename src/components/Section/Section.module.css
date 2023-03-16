@@ -2,3 +2,12 @@
   flex-grow: 1;
   width: 100%;
 }
+
+.section__title {
+  text-align: center;
+}
+
+.section_btn {
+  width: 100%;
+  margin: 50px auto;
+}

@@ -11,11 +11,13 @@ import { DragDropContext } from "react-beautiful-dnd";
 interface SectionProps {
   title: string;
   section_id: string;
+  allowCreate?: boolean;
 }
 
 const Section: React.FC<SectionProps> = ({
   title,
   section_id = "pendingList",
+  allowCreate = true,
 }) => {
   const list = useListSelector(
     (state) => state.list[section_id as keyof ListState]
@@ -40,15 +42,21 @@ const Section: React.FC<SectionProps> = ({
           document.getElementById("modal")!
         )}
       <div id={section_id} className={classes.section}>
-        <h3>{title}</h3>
+        <h2 className={classes.section__title}>{title}</h2>
         <div>
           <List cardList={list} listName={section_id}></List>
 
-          <div>
-            <button type="button" onClick={() => setIsPop(true)}>
-              +
-            </button>
-          </div>
+          {allowCreate && (
+            <div>
+              <button
+                type="button"
+                className={classes.section_btn}
+                onClick={() => setIsPop(true)}
+              >
+                <img src="/assets/add.png" alt="" />
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </Fragment>

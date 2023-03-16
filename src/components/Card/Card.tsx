@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import classes from "./Card.module.css";
-import { useListDispatch } from "../../hooks/list-hooks";
 import { ListItem } from "../../module/list";
 import { Draggable } from "react-beautiful-dnd";
 
@@ -14,21 +13,12 @@ let endList = "";
 let endOrder = 0;
 
 const Card: React.FC<CardProps> = ({ cardData, order }) => {
-  const dispatch = useListDispatch();
+  const finishNum = cardData.tasks.reduce((pre, cur) => {
+    return pre + (cur.isDone ? 1 : 0);
+  }, 0);
+  const processPercentage = +(finishNum / cardData.tasks.length).toFixed(2);
 
-  const swapCardHandler = (e: React.DragEvent) => {
-    e.preventDefault();
-    const target = e.target as HTMLElement;
-    // console.log(target.id);
-  };
-
-  const dragStartHandler = (e: React.DragEvent) => {
-    startList = cardData.listName;
-  };
-
-  const dropHandler = (e: React.DragEvent) => {
-    endList = cardData.listName;
-  };
+  const processBarColor = processPercentage >= 1 ? "green" : "yellow";
 
   return (
     <Draggable key={order} draggableId={cardData.id} index={order}>
@@ -45,12 +35,16 @@ const Card: React.FC<CardProps> = ({ cardData, order }) => {
             <div className={classes.card__description}>
               {cardData.description}
             </div>
-            <div className={classes.card__tasks}>
-              {cardData.tasks.map((task, i) => {
-                return <div key={i}>{task.taskDescription}</div>;
-              })}
-            </div>
-            <div className={classes.card__process}>進度條</div>
+            <div
+              style={{
+                height: "1rem",
+                width: "100%",
+                background: `linear-gradient(to right,${processBarColor} ${
+                  processPercentage * 100
+                }%,white 0%)`,
+              }}
+              className={classes.card__process}
+            ></div>
           </div>
         );
       }}

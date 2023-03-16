@@ -10,30 +10,11 @@
   margin-bottom: 0.5rem;
 }
 
-.task__btn {
-  color: white;
-  background-color: rgb(148, 139, 247);
-  padding: 1rem 1.25rem;
-  border-radius: 0.25rem;
-  transition-duration: 0.3s;
-}
-
-.task__btn:hover {
-  color: white;
-  background-color: rgb(89, 78, 205);
-  padding: 1rem 1.25rem;
-  border-radius: 0.25rem;
-}
-
-.task__btn--disabled {
-  color: white;
-  background-color: rgba(148, 139, 247, 0.4);
-  padding: 1rem 1.25rem;
-  border-radius: 0.25rem;
-}
-
-.task__btn--disabled:hover {
-  cursor: not-allowed;
+.task__list--item {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  gap: 1rem;
 }
 
 .task__list {

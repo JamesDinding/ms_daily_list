@@ -32,7 +32,11 @@ function App() {
         <DragDropContext onDragEnd={swapOrderHandler}>
           <Section title="代辦區塊" section_id="pendingList" />
           <Section title="在辦區塊" section_id="currentList" />
-          <Section title="已辦區塊" section_id="finishedList" />
+          <Section
+            title="已辦區塊"
+            section_id="finishedList"
+            allowCreate={false}
+          />
         </DragDropContext>
       </div>
     </div>

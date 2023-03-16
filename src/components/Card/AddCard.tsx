@@ -6,20 +6,6 @@ import Btn from "../UI/Btn";
 import AddTask from "./AddTask";
 import classes from "./AddCard.module.css";
 
-const dummy_card_data = {
-  id: "testid",
-  listName: "finishedList",
-  title: "testTitle",
-  description: "It is for testing!",
-  creater: "DinDing",
-  tasks: [
-    {
-      taskDescription: "maple todo list",
-      isDone: true,
-    },
-  ],
-};
-
 interface AddCardProps {
   onShut: () => void;
   listName: string;
@@ -33,6 +19,7 @@ const AddCard: React.FC<AddCardProps> = ({ onShut, listName }) => {
 
   const createCardHandler = () => {
     if (!titleRef.current?.value || !descriptionRef.current?.value) return;
+
     dispatch(
       listActions.addToList({
         id: "" + Math.floor(Math.random() * 1000),
