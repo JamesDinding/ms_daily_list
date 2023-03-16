@@ -37,10 +37,6 @@ const Card: React.FC<CardProps> = ({ cardData, order }) => {
       id={`order_${order}`}
       ref={listRef}
       className={classes.card}
-      onDragEnter={swapCardHandler}
-      onDragStart={dragStartHandler}
-      onDrop={dropHandler}
-      onDragOver={(e) => e.preventDefault()}
     >
       <div className={classes.card__title}>{cardData.title}</div>
       <div className={classes.card__description}>{cardData.description}</div>
