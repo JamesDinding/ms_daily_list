@@ -35,11 +35,8 @@ const listSlice = createSlice({
         action.payload;
 
       const cardData = state[originList as keyof ListState][originIndex];
-
-      state[targetList as keyof ListState].splice(targetIndex + 1, 0, cardData);
-      state[originList as keyof ListState].splice(originIndex + 1, 1);
-      console.log(state[targetList as keyof ListState]);
-      console.log(state[originList as keyof ListState]);
+      state[targetList as keyof ListState].splice(targetIndex, 0, cardData);
+      state[originList as keyof ListState].splice(originIndex, 1);
     },
   },
 });
