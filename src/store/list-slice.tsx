@@ -22,8 +22,24 @@ const listSlice = createSlice({
       const { listName, id } = action.payload;
       state[listName as keyof ListState].filter((list) => list.id !== id);
     },
-    movingCardOrder(state, action) {
-      const { targetList, originList, id } = action.payload;
+    movingCardOrder(
+      state,
+      action: PayloadAction<{
+        targetList: string;
+        originList: string;
+        targetIndex: number;
+        originIndex: number;
+      }>
+    ) {
+      const { targetList, originList, targetIndex, originIndex } =
+        action.payload;
+
+      const cardData = state[originList as keyof ListState][originIndex];
+
+      state[targetList as keyof ListState].splice(targetIndex + 1, 0, cardData);
+      state[originList as keyof ListState].splice(originIndex + 1, 1);
+      console.log(state[targetList as keyof ListState]);
+      console.log(state[originList as keyof ListState]);
     },
   },
 });

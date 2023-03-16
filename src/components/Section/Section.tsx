@@ -6,6 +6,7 @@ import classes from "./Section.module.css";
 import List from "./List";
 import AddCard from "../Card/AddCard";
 import BackDrop from "../UI/BackDrop";
+import { DragDropContext } from "react-beautiful-dnd";
 
 interface SectionProps {
   title: string;
@@ -22,6 +23,10 @@ const Section: React.FC<SectionProps> = ({
 
   const [isPop, setIsPop] = useState(false);
 
+  const dragEndHandler = () => {
+    console.log("drag_end_event");
+  };
+
   return (
     <Fragment>
       {isPop &&
@@ -37,7 +42,8 @@ const Section: React.FC<SectionProps> = ({
       <div id={section_id} className={classes.section}>
         <h3>{title}</h3>
         <div>
-          <List cardList={list}></List>
+          <List cardList={list} listName={section_id}></List>
+
           <div>
             <button type="button" onClick={() => setIsPop(true)}>
               +
