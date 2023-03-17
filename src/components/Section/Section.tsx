@@ -6,7 +6,7 @@ import classes from "./Section.module.css";
 import List from "./List";
 import AddCard from "../Card/AddCard";
 import BackDrop from "../UI/BackDrop";
-import { DragDropContext } from "react-beautiful-dnd";
+import { Droppable } from "react-beautiful-dnd";
 
 interface SectionProps {
   title: string;
@@ -44,9 +44,14 @@ const Section: React.FC<SectionProps> = ({
       <div id={section_id} className={classes.section}>
         <h2 className={classes.section__title}>{title}</h2>
         <div>
-          <List cardList={list} listName={section_id}></List>
+          <List
+            cardList={list}
+            listName={section_id}
+            allowCreate={allowCreate}
+            popAddCard={setIsPop}
+          ></List>
 
-          {allowCreate && (
+          {/* {allowCreate && (
             <div>
               <button
                 type="button"
@@ -56,7 +61,7 @@ const Section: React.FC<SectionProps> = ({
                 <img src="/assets/add.png" alt="" />
               </button>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </Fragment>

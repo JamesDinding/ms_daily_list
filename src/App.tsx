@@ -1,5 +1,4 @@
-import React from "react";
-import "./App.css";
+import classes from "./App.module.css";
 import NavBar from "./components/NavigationBar/NavBar";
 import Section from "./components/Section/Section";
 import { useListDispatch } from "./hooks/list-hooks";
@@ -24,11 +23,11 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className={classes.app}>
+      <header>
         <NavBar />
       </header>
-      <div className="Section">
+      <div className={classes.section}>
         <DragDropContext onDragEnd={swapOrderHandler}>
           <Section title="代辦區塊" section_id="pendingList" />
           <Section title="在辦區塊" section_id="currentList" />
