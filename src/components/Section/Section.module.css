@@ -1,7 +1,7 @@
 .section {
   flex-grow: 1;
   width: 100%;
-  background: white;
+  background: rgb(255, 255, 255, 0.8);
   box-shadow: 3px 3px 10px 0px rgb(0, 0, 0);
   transition: all 0.3s;
 }
@@ -11,7 +11,8 @@
 }
 
 .section__title {
-  text-align: center;
+  text-align: start;
+  margin: 1rem 2rem;
 }
 
 .section_btn {

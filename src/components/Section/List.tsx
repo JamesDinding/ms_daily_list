@@ -23,17 +23,21 @@ const List: React.FC<ListProps> = ({
         {(provided, snapshot) => {
           return (
             <Fragment>
-              <div ref={provided.innerRef} {...provided.droppableProps}>
+              <div
+                className={classes["section__card"]}
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+              >
                 {cardList.map((card, index) => (
                   <Card key={index} cardData={card} order={index} />
                 ))}
               </div>
-              {provided.placeholder}{" "}
+              {provided.placeholder}
               {allowCreate && (
                 <div>
                   <button
                     type="button"
-                    className={classes.section_btn}
+                    className={classes.section__btn}
                     onClick={() => popAddCard(true)}
                   >
                     <img src="/assets/add.png" alt="" />

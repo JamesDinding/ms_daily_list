@@ -29,13 +29,9 @@ function App() {
       </header>
       <div className={classes.section}>
         <DragDropContext onDragEnd={swapOrderHandler}>
-          <Section title="代辦區塊" section_id="pendingList" />
-          <Section title="在辦區塊" section_id="currentList" />
-          <Section
-            title="已辦區塊"
-            section_id="finishedList"
-            allowCreate={false}
-          />
+          <Section title="To Do" section_id="pendingList" />
+          <Section title="Doing" section_id="currentList" />
+          <Section title="Done" section_id="finishedList" />
         </DragDropContext>
       </div>
     </div>

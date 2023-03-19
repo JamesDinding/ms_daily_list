@@ -32,11 +32,12 @@ const Card: React.FC<CardProps> = ({ cardData, order }) => {
             {...provided.dragHandleProps}
           >
             <div className={classes.card__title}>{cardData.title}</div>
-            <div className={classes.card__description}>
+            {/* <div className={classes.card__description}>
               {cardData.description}
-            </div>
+            </div> */}
             <div
               style={{
+                marginTop: "1rem",
                 height: "1rem",
                 width: "100%",
                 background: `linear-gradient(to right,${processBarColor} ${

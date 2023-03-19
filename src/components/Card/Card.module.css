@@ -1,11 +1,9 @@
 .card {
-  border-radius: 0.5rem;
-  border-width: 1px;
-  border-style: solid;
-  /* box-shadow: inset 1px 1px 1px 1px; */
+  border-radius: 0.25rem;
   padding: 0.5rem 1rem;
   margin: 1rem 0px;
-  height: 10rem;
+  height: 7rem;
+  background-color: rgb(177, 191, 195);
   overflow: hidden;
 }
 
@@ -15,7 +13,7 @@
   letter-spacing: 1px;
 }
 
-.card__description {
+/* .card__description {
   font-size: 1em;
   text-overflow: ellipsis;
-}
+} */
