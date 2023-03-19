@@ -34,6 +34,8 @@ const listSlice = createSlice({
       const { targetList, originList, targetIndex, originIndex } =
         action.payload;
 
+      // moving card in same list lead unexpected result
+
       const cardData = state[originList as keyof ListState][originIndex];
       state[targetList as keyof ListState].splice(targetIndex, 0, cardData);
       state[originList as keyof ListState].splice(originIndex, 1);
