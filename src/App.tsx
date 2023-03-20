@@ -3,7 +3,22 @@ import NavBar from "./components/NavigationBar/NavBar";
 import Section from "./components/Section/Section";
 import { useListDispatch } from "./hooks/list-hooks";
 import { listActions } from "./store/list-slice";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
+import LandingPage from "./pages/LandingPage";
+import NotePage from "./pages/NotePage";
+import RootLayout from "./pages/Root";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { path: "/", element: <LandingPage /> },
+      { path: "/notes", element: <NotePage /> },
+    ],
+  },
+]);
 
 function App() {
   const dispatch = useListDispatch();
@@ -24,9 +39,7 @@ function App() {
 
   return (
     <div className={classes.app}>
-      <header>
-        <NavBar />
-      </header>
+      <RouterProvider router={router} />
       <div className={classes.section}>
         <DragDropContext onDragEnd={swapOrderHandler}>
           <Section title="To Do" section_id="pendingList" />
