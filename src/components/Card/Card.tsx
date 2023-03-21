@@ -8,10 +8,6 @@ interface CardProps {
   order: number;
 }
 
-let startList = "";
-let endList = "";
-let endOrder = 0;
-
 const Card: React.FC<CardProps> = ({ cardData, order }) => {
   const finishNum = cardData.tasks.reduce((pre, cur) => {
     return pre + (cur.isDone ? 1 : 0);
@@ -21,7 +17,7 @@ const Card: React.FC<CardProps> = ({ cardData, order }) => {
   const processBarColor = processPercentage >= 1 ? "green" : "yellow";
 
   return (
-    <Draggable key={order} draggableId={cardData.id} index={order}>
+    <Draggable key={cardData.id} draggableId={cardData.id} index={order}>
       {(provided, snapshot) => {
         return (
           <div
@@ -32,12 +28,12 @@ const Card: React.FC<CardProps> = ({ cardData, order }) => {
             {...provided.dragHandleProps}
           >
             <div className={classes.card__title}>{cardData.title}</div>
-            {/* <div className={classes.card__description}>
-              {cardData.description}
-            </div> */}
+            <span className={classes.card__description}>
+              completed: {processPercentage} %
+            </span>
             <div
               style={{
-                marginTop: "1rem",
+                marginTop: ".75rem",
                 height: "1rem",
                 width: "100%",
                 background: `linear-gradient(to right,${processBarColor} ${

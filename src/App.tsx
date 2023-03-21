@@ -1,21 +1,22 @@
 import classes from "./App.module.css";
-import NavBar from "./components/NavigationBar/NavBar";
 import Section from "./components/Section/Section";
 import { useListDispatch } from "./hooks/list-hooks";
 import { listActions } from "./store/list-slice";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import LandingPage from "./pages/LandingPage";
-import NotePage from "./pages/NotePage";
+import NotePage, { loader as NoteLoader } from "./pages/NotePage";
+import ErrorPage from "./pages/Error";
 import RootLayout from "./pages/Root";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
-      { path: "/", element: <LandingPage /> },
-      { path: "/notes", element: <NotePage /> },
+      { path: "", element: <LandingPage /> },
+      { path: "notes", element: <NotePage />, loader: NoteLoader },
     ],
   },
 ]);

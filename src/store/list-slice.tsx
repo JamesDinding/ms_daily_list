@@ -34,11 +34,19 @@ const listSlice = createSlice({
       const { targetList, originList, targetIndex, originIndex } =
         action.payload;
 
-      // moving card in same list lead unexpected result
-
-      const cardData = state[originList as keyof ListState][originIndex];
-      state[targetList as keyof ListState].splice(targetIndex, 0, cardData);
-      state[originList as keyof ListState].splice(originIndex, 1);
+      if (targetList === originList) {
+        [
+          state[targetList as keyof ListState][targetIndex],
+          state[targetList as keyof ListState][originIndex],
+        ] = [
+          state[targetList as keyof ListState][originIndex],
+          state[targetList as keyof ListState][targetIndex],
+        ];
+      } else {
+        const cardData = state[originList as keyof ListState][originIndex];
+        state[targetList as keyof ListState].splice(targetIndex, 0, cardData);
+        state[originList as keyof ListState].splice(originIndex, 1);
+      }
     },
   },
 });
