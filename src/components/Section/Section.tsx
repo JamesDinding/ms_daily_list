@@ -25,10 +25,6 @@ const Section: React.FC<SectionProps> = ({
 
   const [isPop, setIsPop] = useState(false);
 
-  const dragEndHandler = () => {
-    console.log("drag_end_event");
-  };
-
   return (
     <Fragment>
       {isPop &&
