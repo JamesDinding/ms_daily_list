@@ -50,6 +50,7 @@ const listSlice = createSlice({
         ];
       } else {
         const cardData = state[originList as keyof ListState][originIndex];
+        cardData.listName = targetList;
         state[targetList as keyof ListState].splice(targetIndex, 0, cardData);
         state[originList as keyof ListState].splice(originIndex, 1);
       }

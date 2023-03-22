@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./NavBar.module.css";
 import { useNavigate } from "react-router-dom";
-import { DUMMY_DATA } from "../../const";
+import { DUMMY_DATA, FB_DOMAIN, ANONYMOUS_USER } from "../../const";
 
 const NavBar: React.FC = () => {
   const navigate = useNavigate();
@@ -9,16 +9,13 @@ const NavBar: React.FC = () => {
   function navigateHandler() {
     // for logout
     // if(isLogged)
-    fetch(
-      "https://note-b6774-default-rtdb.firebaseio.com/note/-NR9SdrVP7TjGU7Z9n6g.json",
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(DUMMY_DATA),
-      }
-    )
+    fetch(FB_DOMAIN + ANONYMOUS_USER + ".json", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(DUMMY_DATA),
+    })
       .then((res) => {
         if (!res.ok) throw new Error("firebase sucks.");
         return res.json();
@@ -34,7 +31,10 @@ const NavBar: React.FC = () => {
 
   return (
     <nav className={classes.navbar}>
-      <div className={classes.logo}>logo</div>
+      <div className={classes.logo}>
+        <img src="/assets/notes.png" className={classes.logo__img} alt="" />
+        <span className={classes.logo__txt}>NOTE</span>
+      </div>
 
       <button className={classes.navbar__btn} onClick={navigateHandler}>
         reset data

@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import Section from "./components/Section/Section";
 import LandingPage from "./pages/LandingPage";
-import NotePage, { loader as NoteLoader } from "./pages/NotePage";
+import NotePage from "./pages/NotePage";
 import ErrorPage from "./pages/Error";
 import RootLayout from "./pages/Root";
 import { ANONYMOUS_USER, FB_DOMAIN } from "./const";
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "", element: <LandingPage /> },
-      { path: "notes", element: <NotePage />, loader: NoteLoader },
+      // { path: "", element: <LandingPage /> },
+      { path: "", element: <NotePage /> },
     ],
   },
 ]);
@@ -77,13 +77,13 @@ function App() {
   return (
     <div className={classes.app}>
       <RouterProvider router={router} />
-      <div className={classes.section}>
+      {/* <div className={classes.section}>
         <DragDropContext onDragEnd={swapOrderHandler}>
           <Section title="To Do" section_id="pendingList" />
           <Section title="Doing" section_id="currentList" />
           <Section title="Done" section_id="finishedList" />
         </DragDropContext>
-      </div>
+      </div> */}
     </div>
   );
 }
