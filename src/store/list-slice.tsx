@@ -54,6 +54,10 @@ const listSlice = createSlice({
         state[originList as keyof ListState].splice(originIndex, 1);
       }
     },
+    toggleTask(state, action: PayloadAction<any>) {
+      const { listName, order, cardOrder, value } = action.payload;
+      state[listName as keyof ListState][order].tasks[cardOrder].isDone = value;
+    },
   },
 });
 
