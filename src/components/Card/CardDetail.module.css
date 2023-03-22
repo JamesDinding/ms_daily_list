@@ -18,6 +18,8 @@
 .card__title {
   font-size: 3em;
   font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card__content {
