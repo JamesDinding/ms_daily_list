@@ -14,7 +14,7 @@ const Card: React.FC<CardProps> = ({ cardData, order }) => {
   }, 0);
   const processPercentage = +(finishNum / cardData.tasks.length).toFixed(2);
 
-  const processBarColor = processPercentage >= 1 ? "green" : "yellow";
+  const processBarColor = processPercentage >= 1 ? "green" : "rgb(239,217,140)";
 
   return (
     <Draggable key={cardData.id} draggableId={cardData.id} index={order}>

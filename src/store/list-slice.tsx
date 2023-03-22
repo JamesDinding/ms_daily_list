@@ -11,6 +11,12 @@ const listSlice = createSlice({
   name: "list",
   initialState: initialListState,
   reducers: {
+    setList(state, action: PayloadAction<any>) {
+      const { current, pending, finished } = action.payload;
+      state["pendingList"] = pending || [];
+      state["currentList"] = current || [];
+      state["finishedList"] = finished || [];
+    },
     addToList(state, action: PayloadAction<ListItem>) {
       const { listName } = action.payload;
       state[listName as keyof ListState].push(action.payload);
@@ -52,4 +58,5 @@ const listSlice = createSlice({
 });
 
 export const listActions = listSlice.actions;
+
 export default listSlice.reducer;

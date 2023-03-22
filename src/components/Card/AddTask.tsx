@@ -76,7 +76,7 @@ const AddTask: React.FC<AddTaskProps> = ({ tasks, setTasks }) => {
                 type="text"
                 autoFocus={true}
                 minLength={1}
-                maxLength={30}
+                maxLength={50}
                 onKeyDown={enterTaskGoal.bind(null, `task_${index}`)}
               />
               <button

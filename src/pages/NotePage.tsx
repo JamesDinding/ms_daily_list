@@ -1,8 +1,9 @@
-import { useLoaderData, useNavigation } from "react-router-dom";
+import { useLoaderData, useNavigation, json } from "react-router-dom";
 
 const NotePage = () => {
-  const noteData = useLoaderData();
+  const noteData: any = useLoaderData();
   const navigation = useNavigation();
+  console.log(noteData.isError);
   console.log(noteData);
 
   return (
@@ -18,7 +19,10 @@ export async function loader() {
   const response = await fetch("probably_firebase_dummy_backend");
 
   if (!response.ok) {
-    // .... handle err
+    // throw new Response(JSON.stringify({ message: "Could not fetch data." }), {
+    //   status: 500,
+    // });
+    throw json({ message: "Could not get data!" }, { status: 500 });
   } else {
     const resData = await response.json();
     return resData;

@@ -22,7 +22,7 @@ const AddCard: React.FC<AddCardProps> = ({ onShut, listName }) => {
 
     dispatch(
       listActions.addToList({
-        id: "" + Math.floor(Math.random() * 1000),
+        id: "" + new Date().valueOf(),
         listName: listName,
         title: titleRef.current?.value,
         description: descriptionRef.current?.value,
