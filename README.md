@@ -8,7 +8,7 @@ React, TypeScript, Redux, React-beautiful-dnd
 
 其中 React-beautiful-dnd 用在拖曳時，可以提供更好的畫面及體驗。
 
-Redux 協助管理資料
+以及使用 firebase realtime db 來當作簡易的後端。
 
 ## 元件大致上的結構
 
