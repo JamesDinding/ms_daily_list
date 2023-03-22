@@ -67,7 +67,6 @@ const AddTask: React.FC<AddTaskProps> = ({ tasks, setTasks }) => {
       <div className={classes.title}>待辦事項</div>
       <ul className={classes.task__list}>
         {tasks.map((task, index) => {
-          console.log(task, task.length);
           return (
             <li key={index} className={classes["task__list--item"]}>
               <input

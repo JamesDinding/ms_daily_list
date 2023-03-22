@@ -3,7 +3,6 @@ import NavBar from "../components/NavigationBar/NavBar";
 
 const ErrorPage = () => {
   const error: any = useRouteError();
-  console.log(error.status);
 
   return (
     <>
